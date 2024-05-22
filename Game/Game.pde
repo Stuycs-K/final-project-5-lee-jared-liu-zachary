@@ -5,7 +5,10 @@ static ArrayList<Player> playerList;
 static ArrayList<Card> discardPile;
 
 void setup() {
-  System.out.println(new Deck());
+  Deck test = new Deck();
+  System.out.println(test);
+  test.shuffleDeck();
+  System.out.println("\n" + test);
 }
 
 void draw() {

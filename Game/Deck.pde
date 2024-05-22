@@ -29,6 +29,10 @@ public class Deck {
     }
   }
   
+  public void shuffleDeck() {
+     Collections.shuffle(deck);
+  }
+  
   public String toString() {
     return Arrays.toString(deck.toArray());
   }
