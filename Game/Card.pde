@@ -1,8 +1,8 @@
 public class Card {
-  int value;
-  String suit, name, image;
+  int value, suit;
+  String name, image;
  
-  public Card(int value, String suit, String name, String image) {
+  public Card(int value, int suit, String name, String image) {
     this.value = value;
     this.suit = suit;
     this.name = name;
@@ -13,7 +13,7 @@ public class Card {
     return value;
   }
   
-  String getSuit() {
+  int getSuit() {
     return suit;
   }
   
