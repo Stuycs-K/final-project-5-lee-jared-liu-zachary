@@ -7,7 +7,24 @@ public class Deck {
   public Deck() {
     for (int i = 3; i <= 15; i++) {
       for (int j = 0; j <= 3; j++) {
-        deck.add(new Card(i, j, i + " of " + suitNames[j], "" + i + j));
+        if (i == 11) {
+          deck.add(new Card(i, j, "Jack of " + suitNames[j], "" + i + j));
+        }
+        else if (i == 12) {
+          deck.add(new Card(i, j, "Queen of " + suitNames[j], "" + i + j));
+        }
+        else if (i == 13) {
+          deck.add(new Card(i, j, "King of " + suitNames[j], "" + i + j));
+        }
+        else if (i == 14) {
+          deck.add(new Card(i, j, "Ace of " + suitNames[j], "" + i + j));
+        }
+        else if (i == 15) {
+          deck.add(new Card(i, j, "Two of " + suitNames[j], "" + i + j));
+        }
+        else {
+           deck.add(new Card(i, j, i + " of " + suitNames[j], "" + i + j));
+        }
       }
     }
   }

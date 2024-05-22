@@ -24,4 +24,8 @@ public class Card {
   //String getImage() {
   //  return image;
   //}
+  
+  public String toString() {
+     return name; 
+  }
 }
