@@ -7,6 +7,14 @@ public class Player {
     this.hand = hand;
   }
   
+  String getName() {
+    return name; 
+  }
+  
+  ArrayList<Card> getCards() {
+    return hand; 
+  }
+  
   void updateHand() {
     
   }
