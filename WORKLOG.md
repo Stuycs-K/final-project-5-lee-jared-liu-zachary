@@ -15,9 +15,9 @@ info
 
 ## GROUP MEMBER 2
 
-### date x
+### 5/22
 
-info
+Initiated functions on the Player Class
 
 ### date y
 
