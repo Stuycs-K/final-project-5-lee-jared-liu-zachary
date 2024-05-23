@@ -8,12 +8,12 @@ PImage img;
 void setup() {
   size(500,500);
   Deck test = new Deck();
-  System.out.println(test.deck.size());
   test.shuffleDeck();
   for (int i = 0; i < numPlayers; i++) {
     ArrayList<Card> giveToPlayer = new ArrayList<Card>();
-    for (int j = 0; j < 13; j++) {
-      giveToPlayer.add(test.deck.remove(j));
+    //System.out.println(test.deck.size());
+    for (int j = 0 + (13*i); j < 13 + (13*i); j++) {
+      giveToPlayer.add(test.deck.get(j));
     }
     playerList.add(new Player("Player " + (i + 1), giveToPlayer));
   }
