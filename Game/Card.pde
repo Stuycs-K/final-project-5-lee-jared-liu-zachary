@@ -6,7 +6,7 @@ public class Card {
     this.value = value;
     this.suit = suit;
     this.name = name;
-    this.image = image;
+    this.image = image + ".png";
   }
  
   int getValue() {
@@ -21,9 +21,9 @@ public class Card {
     return name;
   }
   
-  //String getImage() {
-  //  return image;
-  //}
+  String getImage() {
+    return image;
+  }
   
   public String toString() {
      return name; 
