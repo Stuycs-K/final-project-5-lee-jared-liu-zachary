@@ -4,6 +4,7 @@ static int numPlayers = 4, currentTurn, currentPokerHand;
 static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
 PImage img;
+static ArrayList<Card> previousCard;
 
 void setup() {
   size(500,500);
