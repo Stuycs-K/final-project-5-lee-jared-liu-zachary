@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Rules {
   
   boolean isValid() {
@@ -9,19 +11,23 @@ public class Rules {
   }
   
   boolean isDouble(ArrayList<Card> curr) {
-    return curr.size() == 2;
+    if (curr.size() != 2) {
+      return false;
+    }
+    return curr.get(0).getValue() == curr.get(1).getValue();
   }
   
   boolean isTriple(ArrayList<Card> curr) {
-    return curr.size() == 3;
+    if (curr.size() != 3) {
+      return false;
+    }
+    return curr.get(0).getValue() == curr.get(1).getValue() && curr.get(1).getValue() == curr.get(2).getValue();
   }
   
   boolean isCombination(ArrayList<Card> curr) {
-    if (curr.size() == 5) {
-      int count = 0;
-      for (int i = 0; i < curr.size()-1; i++) {
-        
-      }
+    if (curr.size() != 5) {
+      return false;
+    }
   }
   
 }
