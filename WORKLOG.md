@@ -21,6 +21,6 @@ Initiated functions on the Player Class
 
 ### 5/23
 
-Added to Player Class functions
-Worked on Rules Class, created functions that distinguished between singles, pairs, triples, etc.
+Added to Player Class functions  
+Worked on Rules Class, created functions that distinguished between singles, pairs, triples, etc.  
 Finished combinations (four of a kind, full house, flush, straight)
