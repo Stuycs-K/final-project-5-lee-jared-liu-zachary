@@ -20,7 +20,7 @@ public class Deck {
           deck.add(new Card(i, j, "Ace of " + suitNames[j], "" + i + j));
         }
         else if (i == 15) {
-          deck.add(new Card(i, j, "Two of " + suitNames[j], "" + i + j));
+          deck.add(new Card(i, j, "2 of " + suitNames[j], "" + i + j));
         }
         else {
            deck.add(new Card(i, j, i + " of " + suitNames[j], "" + i + j));

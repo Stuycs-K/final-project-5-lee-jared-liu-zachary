@@ -2,18 +2,8 @@ import java.util.*;
 
 public class Rules {
   
-  boolean isValid(ArrayList<Card> pre, ArrayList<Card> curr) {
-    if (isSingle(pre) && isSingle(curr)) {
-      return true;
-    } else if (isDouble(pre) && isDouble(curr)) {
-      return true;
-    } else if (isTriple(pre) && isTriple(curr)) {
-      return true;
-    } else if (isCombination(pre) && isCombination(curr)) {
-      return true;
-    } else {
-      return false;
-    }
+  boolean isValid() {
+    return false;
   }
   
   boolean isSingle(ArrayList<Card> curr) {
@@ -28,7 +18,7 @@ public class Rules {
   }
   
   boolean isTriple(ArrayList<Card> curr) {
-    if (curr.size() != 3) { 
+    if (curr.size() != 3) {
       return false;
     }
     return curr.get(0).getValue() == curr.get(1).getValue() && curr.get(1).getValue() == curr.get(2).getValue();
@@ -64,7 +54,6 @@ public class Rules {
         break;
       }
     }
-    
     boolean straight = true;
     for (int i = 0; i < curr.size() - 1; i++) {
       if (curr.get(i + 1).getValue() != curr.get(i).getValue() + 1) {
