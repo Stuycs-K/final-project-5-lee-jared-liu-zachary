@@ -2,8 +2,18 @@ import java.util.*;
 
 public class Rules {
   
-  boolean isValid() {
-    return false;
+  boolean isValid(ArrayList<Card> pre, ArrayList<Card> curr) {
+    if (isSingle(pre) && isSingle(curr)) {
+      return true;
+    } else if (isDouble(pre) && isDouble(curr)) {
+      return true;
+    } else if (isTriple(pre) && isTriple(curr)) {
+      return true;
+    } else if (isCombination(pre) && isCombination(curr)) {
+      return true;
+    } else {
+      return false;
+    }
   }
   
   boolean isSingle(ArrayList<Card> curr) {
@@ -41,6 +51,7 @@ public class Rules {
       return false;
     }
     sortCards(curr);
+    
     boolean fourOfAKind = (curr.get(0).getValue() == curr.get(3).getValue()) || (curr.get(1).getValue() == curr.get(4).getValue());
     
     boolean fullHouse = ((curr.get(0).getValue() == curr.get(2).getValue()) && (curr.get(3).getValue() == curr.get(4).getValue())) || ((curr.get(0).getValue() == curr.get(1).getValue()) && (curr.get(2).getValue() == curr.get(4).getValue()));
