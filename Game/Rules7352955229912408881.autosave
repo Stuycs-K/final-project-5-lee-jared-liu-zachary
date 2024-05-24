@@ -18,7 +18,7 @@ public class Rules {
   }
   
   boolean isTriple(ArrayList<Card> curr) {
-    if (curr.size() != 3) { 
+    if (curr.size() != 3) {
       return false;
     }
     return curr.get(0).getValue() == curr.get(1).getValue() && curr.get(1).getValue() == curr.get(2).getValue();
@@ -41,6 +41,7 @@ public class Rules {
       return false;
     }
     sortCards(curr);
+    
     boolean fourOfAKind = (curr.get(0).getValue() == curr.get(3).getValue()) || (curr.get(1).getValue() == curr.get(4).getValue());
     
     boolean fullHouse = ((curr.get(0).getValue() == curr.get(2).getValue()) && (curr.get(3).getValue() == curr.get(4).getValue())) || ((curr.get(0).getValue() == curr.get(1).getValue()) && (curr.get(2).getValue() == curr.get(4).getValue()));
@@ -53,7 +54,6 @@ public class Rules {
         break;
       }
     }
-    
     boolean straight = true;
     for (int i = 0; i < curr.size() - 1; i++) {
       if (curr.get(i + 1).getValue() != curr.get(i).getValue() + 1) {
