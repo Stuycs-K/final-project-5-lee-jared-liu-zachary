@@ -18,7 +18,7 @@ public class Player {
   }
   
   void updateHand() {
-    
+    hand.remove(0);
   }
   
   ArrayList<Card> makeSelection() {

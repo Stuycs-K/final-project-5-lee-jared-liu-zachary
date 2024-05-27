@@ -7,7 +7,7 @@ static ArrayList<Card> discardPile;
 static ArrayList<Card> previousCard;
 
 void setup() {
-  size(1250,750);
+  size(1250,800);
   Deck test = new Deck();
   test.shuffleDeck();
   for (int i = 0; i < numPlayers; i++) {
@@ -20,7 +20,7 @@ void setup() {
   for (int i = 0; i < playerList.size(); i++) {
     System.out.println(playerList.get(i).getName() + " cards: " + playerList.get(i).getCards()); 
   }
-  currentTurn = findFirstPlayer();
+  currentTurn = findFirstPlayer(); 
   System.out.println(currentTurn);
 }
 
@@ -32,6 +32,7 @@ void draw() {
 }
 
 void mouseClicked() {
+  playerList.get(currentTurn).updateHand();
   updateTurn();
 }
 
@@ -61,7 +62,23 @@ void displayCards(Player curr) {
   for (int i = 0; i < cards.size(); i++) {
     PImage card = loadImage(cards.get(i).getImage());
     card.resize(75,0);
-    image(card, (width/2 - (cards.size()/2)* 55) + (i*50), 600);
+    image(card, (width/2 - (cards.size()/2)* 55) + (i*50), 675);
+  }
+  
+  PImage faceDownV = loadImage("/PlayingCardsS/b1.png");
+  PImage faceDownH = loadImage("/PlayingCardsS/b1.1.png");
+  faceDownV.resize(75,0);
+  faceDownH.resize(0,75);
+  for (int i = 0; i < playerList.get((currentTurn+1) % numPlayers).getCards().size(); i++) {
+    image(faceDownH, 50, (height/2 - (cards.size()/2)* 45) + (i*40));
+  }
+  
+  for (int i = 0; i < playerList.get((currentTurn+2) % numPlayers).getCards().size(); i++) {
+    image(faceDownV, (width/2 - (cards.size()/2)* 55) + (i*50), 25);
+  }
+  
+  for (int i = 0; i < playerList.get((currentTurn+3) % numPlayers).getCards().size(); i++) {
+    image(faceDownH, 1100, (height/2 - (cards.size()/2)* 45) + (i*40));
   }
 }
 
