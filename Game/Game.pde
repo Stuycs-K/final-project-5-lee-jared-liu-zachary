@@ -7,7 +7,7 @@ static ArrayList<Card> discardPile;
 static ArrayList<Card> previousCard;
 
 void setup() {
-  size(500,500);
+  size(1250,750);
   Deck test = new Deck();
   test.shuffleDeck();
   for (int i = 0; i < numPlayers; i++) {
@@ -60,7 +60,8 @@ void displayCards(Player curr) {
   ArrayList<Card> cards = curr.getCards();
   for (int i = 0; i < cards.size(); i++) {
     PImage card = loadImage(cards.get(i).getImage());
-    image(card, 0 + (i*50), 0);
+    card.resize(75,0);
+    image(card, (width/2 - (cards.size()/2)* 55) + (i*50), 600);
   }
 }
 
