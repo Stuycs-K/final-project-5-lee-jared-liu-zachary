@@ -3,7 +3,7 @@ import java.util.*;
 static int numPlayers = 4, currentTurn, currentPokerHand;
 static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
-PImage img;
+//ArrayList<PImage> playerCards;
 static ArrayList<Card> previousCard;
 
 void setup() {
@@ -27,6 +27,7 @@ void setup() {
 void draw() {
   //image(img, 0, 0);
   background(color(72, 120, 96));
+  displayCards(playerList.get(currentTurn));
   text("" + currentTurn, 20, 20);
 }
 
@@ -53,6 +54,14 @@ int findFirstPlayer() {
 void updateTurn() {
   currentTurn++;
   currentTurn %= numPlayers;
+}
+
+void displayCards(Player curr) {
+  ArrayList<Card> cards = curr.getCards();
+  for (int i = 0; i < cards.size(); i++) {
+    PImage card = loadImage(cards.get(i).getImage());
+    image(card, 0 + (i*50), 0);
+  }
 }
 
 boolean isGameOver() {

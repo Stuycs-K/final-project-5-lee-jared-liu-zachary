@@ -6,7 +6,7 @@ public class Card {
     this.value = value;
     this.suit = suit;
     this.name = name;
-    this.image = image + ".png";
+    this.image = "/PlayingCardsS/" + image + ".png";
   }
  
   int getValue() {
