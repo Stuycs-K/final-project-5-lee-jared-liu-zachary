@@ -25,6 +25,18 @@ public class Card {
     return image;
   }
   
+  boolean lower(Card other) {
+    if (this.value == other.value) {
+      if (this.suit < other.suit) {
+        return true;
+      }
+    }
+    else if (this.value < other.value) { 
+       return true; 
+    }
+    return false;
+  }
+  
   public String toString() {
      return name; 
   }
