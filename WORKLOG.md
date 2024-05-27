@@ -14,6 +14,10 @@ Started on Game Logic, specifically handing out cards from the shuffled deck to 
 Will continue to work on Game Logic w/ Rules Class Implemented
 
 
+### 5/24-26
+
+Was on vacation, did not have access to computer.
+
 ## GROUP MEMBER 2
 
 ### 5/22
