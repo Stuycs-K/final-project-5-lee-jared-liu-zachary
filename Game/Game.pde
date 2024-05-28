@@ -37,24 +37,28 @@ void draw() {
   displayCards(playerList.get(currentTurn));
   fill(255);
   text("" + currentTurn, 20, 20);
-  text("" + playerSelection, 20, 40);
+  textSize(20);
+  textAlign(CENTER);
+  text("" + playerSelection, width/2, 660);
 }
 
 void mouseClicked() {
   ArrayList<Card> cards = playerList.get(currentTurn).getCards();
   if (mouseY > 675 && mouseY < 780) {
     int i = (mouseX - (width/2) + (cards.size()/2*80))/80;
-    playerSelection.add(cards.get(i));
+    Card toAdd = cards.get(i);
+    if (!playerSelection.contains(toAdd) && playerSelection.size() < 5) {
+      playerSelection.add(cards.get(i));
+    }
+    else {
+      playerSelection.remove(toAdd); 
+    }
   }
 }
 
 void keyPressed() {
   playerList.get(currentTurn).updateHand();
   updateTurn();
-}
-
-void makeSelection() {
-  
 }
 
 int findFirstPlayer() {
@@ -74,6 +78,7 @@ int findFirstPlayer() {
 }
 
 void updateTurn() {
+  playerSelection = new ArrayList<Card>();
   currentTurn++;
   currentTurn %= numPlayers;
 }
