@@ -27,6 +27,13 @@ void setup() {
 void draw() {
   //image(img, 0, 0);
   background(color(72, 120, 96));
+  fill(color(72, 120, 96));
+  stroke(color(53, 101, 77));
+  strokeWeight(10);
+  ellipse(width/2, height/2, 850, 450);
+  stroke(color(255));
+  strokeWeight(2);
+  ellipse(width/2, height/2, 840, 440);
   displayCards(playerList.get(currentTurn));
   text("" + currentTurn, 20, 20);
 }
@@ -65,8 +72,8 @@ void displayCards(Player curr) {
     image(card, (width/2 - (cards.size()/2)* 55) + (i*50), 675);
   }
   
-  PImage faceDownV = loadImage("/PlayingCardsS/b1.png");
-  PImage faceDownH = loadImage("/PlayingCardsS/b1.1.png");
+  PImage faceDownV = loadImage("/PlayingCardsS/b2.png");
+  PImage faceDownH = loadImage("/PlayingCardsS/b2.1.png");
   faceDownV.resize(75,0);
   faceDownH.resize(0,75);
   for (int i = 0; i < playerList.get((currentTurn+1) % numPlayers).getCards().size(); i++) {
