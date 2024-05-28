@@ -3,6 +3,7 @@ import java.util.*;
 static int numPlayers = 4, currentTurn, currentPokerHand;
 static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
+static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCard;
 
 void setup() {
@@ -36,12 +37,15 @@ void draw() {
   displayCards(playerList.get(currentTurn));
   fill(255);
   text("" + currentTurn, 20, 20);
+  text("" + playerSelection, 20, 40);
 }
 
 void mouseClicked() {
-  int size = playerList.get(currentTurn).getCards().size();
-
-  //if (mouseX
+  ArrayList<Card> cards = playerList.get(currentTurn).getCards();
+  if (mouseY > 675 && mouseY < 780) {
+    int i = (mouseX - (width/2) + (cards.size()/2*80))/80;
+    playerSelection.add(cards.get(i));
+  }
 }
 
 void keyPressed() {
@@ -50,6 +54,7 @@ void keyPressed() {
 }
 
 void makeSelection() {
+  
 }
 
 int findFirstPlayer() {
