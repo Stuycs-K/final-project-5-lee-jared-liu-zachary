@@ -9,8 +9,23 @@ public class Player {
     this.hand = hand;
   }
   
-  void updateHand() {
-    
+  String getName() {
+    return name;
+  }
+  
+  void updateHand(ArrayList<Card> selected) {
+    for (int i = 0; i < hand.size(); i++) {
+      for (int j = 0; j < selected.size(); j++) {
+        if (hand.get(i).getValue() == selected.get(j).getValue() && hand.get(i).getSuit() == selected.get(j).getSuit()) {
+          hand.remove(i);
+          i--;
+        }
+      }
+    }
+  }
+  
+  ArrayList<Card> getCards() {
+    return hand; 
   }
   
   ArrayList<Card> makeSelection() {

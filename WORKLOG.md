@@ -14,6 +14,10 @@ Started on Game Logic, specifically handing out cards from the shuffled deck to 
 Will continue to work on Game Logic w/ Rules Class Implemented
 
 
+### 5/24-26
+
+Was on vacation, did not have access to computer.
+
 ## GROUP MEMBER 2
 
 ### 5/22
@@ -25,3 +29,9 @@ Initiated functions on the Player Class
 Added to Player Class functions  
 Worked on Rules Class, created functions that distinguished between singles, pairs, triples, etc.  
 Finished combinations (four of a kind, full house, flush, straight)
+
+### 5/24
+
+Finished + tested isValid() in Rules Class
+Expanded Player Class: added getName() and getHand()
+Started updateHand() in Player
