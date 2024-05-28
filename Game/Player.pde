@@ -13,10 +13,6 @@ public class Player {
     return name;
   }
   
-  ArrayList<Card> getHand() {
-    return hand;
-  }
-  
   void updateHand(ArrayList<Card> selected) {
     for (int i = 0; i < hand.size(); i++) {
       for (int j = 0; j < selected.size(); j++) {
@@ -25,7 +21,11 @@ public class Player {
           i--;
         }
       }
-    }   
+    }
+  }
+  
+  ArrayList<Card> getCards() {
+    return hand; 
   }
   
   ArrayList<Card> makeSelection() {
