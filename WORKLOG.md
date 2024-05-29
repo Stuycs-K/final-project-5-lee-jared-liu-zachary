@@ -43,6 +43,10 @@ Finished combinations (four of a kind, full house, flush, straight)
 
 ### 5/24
 
-Finished + tested isValid() in Rules Class
-Expanded Player Class: added getName() and getHand()
-Started updateHand() in Player
+Finished + tested isValid() in Rules Class  
+Expanded Player Class: added getName() and getHand()  
+Started updateHand() in Player  
+
+### 5/28
+Added additional information and possible ideas to prototype document  
+Finished updateHand() in Player  
