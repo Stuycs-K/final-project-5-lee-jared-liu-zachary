@@ -14,6 +14,21 @@ Started on Game Logic, specifically handing out cards from the shuffled deck to 
 Will continue to work on Game Logic w/ Rules Class Implemented
 
 
+### 5/24-26
+
+Was on vacation, did not have access to computer.
+
+### 5/27 
+
+Completed findFirstPlayer(), which finds what player has the lowest card  
+Created an updateTurn() method to go through player turns  
+Start creating visuals (background color, displaying cards, changing orientation of cards for current player)  
+
+### 5/28
+
+Continued working on game logic, created method to allow player to select cards, can see cards selected  
+Will continue to work on game logic using Rules class.
+
 ## GROUP MEMBER 2
 
 ### 5/22
@@ -25,3 +40,16 @@ Initiated functions on the Player Class
 Added to Player Class functions  
 Worked on Rules Class, created functions that distinguished between singles, pairs, triples, etc.  
 Finished combinations (four of a kind, full house, flush, straight)
+
+### 5/24
+
+Finished + tested isValid() in Rules Class  
+Expanded Player Class: added getName() and getHand()  
+Started updateHand() in Player  
+
+### 5/25-27
+Away with family on weekend, unable to work on computer  
+
+### 5/28
+Added additional information and possible ideas to prototype document  
+Finished updateHand() in Player  
