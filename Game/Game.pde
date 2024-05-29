@@ -44,6 +44,7 @@ void draw() {
   if (selection) {
     displayPlacedCards();
   }
+  
   isGameOver();
 }
 
@@ -60,13 +61,14 @@ void mouseClicked() {
     }
   }
   if (mouseX < width/2 + 440 && mouseX > width/2 - 440 && mouseY > height/2 - 220 && mouseY < height/2 + 220) {
+    playerList.get(currentTurn).updateHand(playerSelection);
     selection = true;
   }
 }
 
 void keyPressed() {
-  playerList.get(currentTurn).updateHand(playerSelection);
   updateTurn();
+  selection = false;
 }
 
 int findFirstPlayer() {
