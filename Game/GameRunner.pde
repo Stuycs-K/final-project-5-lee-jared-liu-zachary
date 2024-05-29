@@ -2,7 +2,7 @@ static int numPlayers = 4, currentTurn, currentPokerHand;
 static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
-static ArrayList<Card> previousCard;
+static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false;
 
 int findFirstPlayer() {
@@ -47,14 +47,15 @@ void displayPlayerCards(Player curr) {
 }
   
 void displayPlacedCards() {
-  for (int i = 0; i < playerSelection.size(); i++) {
-    PImage card = loadImage(playerSelection.get(i).getImage());
+  for (int i = 0; i < previousCards.size(); i++) {
+    PImage card = loadImage(previousCards.get(i).getImage());
     card.resize(75, 0);
     image(card, (width/2 - 175) + (i*80), height/2-50);
   }
 }
 
 void updateTurn() {
+  previousCards = playerSelection;
   playerSelection = new ArrayList<Card>();
   currentTurn++;
   currentTurn %= numPlayers;
@@ -85,11 +86,14 @@ void mouseClicked() {
   if (mouseX < width/2 + 440 && mouseX > width/2 - 440 && mouseY > height/2 - 220 && mouseY < height/2 + 220) {
     playerList.get(currentTurn).updateHand(playerSelection);
     selection = true;
+    delay(500);
+    updateTurn();
+    selection = false;
   }
 }
 
 
-void keyPressed() {
-  updateTurn();
-  selection = false;
-}
+//void keyPressed() {
+//  updateTurn();
+//  selection = false;
+//}

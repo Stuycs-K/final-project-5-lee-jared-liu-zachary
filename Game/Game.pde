@@ -33,9 +33,6 @@ void draw() {
   textSize(20);
   textAlign(CENTER);
   text("" + playerSelection, width/2, 660);
-  if (selection) {
-    displayPlacedCards();
-  }
-  
+  displayPlacedCards();
   isGameOver();
 }
