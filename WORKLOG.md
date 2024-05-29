@@ -47,7 +47,7 @@ Finished + tested isValid() in Rules Class
 Expanded Player Class: added getName() and getHand()  
 Started updateHand() in Player  
 
-### 5/24-27
+### 5/25-27
 Away with family on weekend, unable to work on computer  
 
 ### 5/28
