@@ -5,6 +5,7 @@ static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCard;
+static boolean selection = false;
 
 void setup() {
   size(1250, 800);
@@ -34,12 +35,15 @@ void draw() {
   stroke(color(255));
   strokeWeight(2);
   ellipse(width/2, height/2, 840, 440);
-  displayCards(playerList.get(currentTurn));
+  displayPlayerCards(playerList.get(currentTurn));
   fill(255);
   text("" + currentTurn, 20, 20);
   textSize(20);
   textAlign(CENTER);
   text("" + playerSelection, width/2, 660);
+  if (selection) {
+    displayPlacedCards();
+  }
 }
 
 void mouseClicked() {
@@ -53,6 +57,9 @@ void mouseClicked() {
     else {
       playerSelection.remove(toAdd); 
     }
+  }
+  if (mouseX < width/2 + 440 && mouseX > width/2 - 440 && mouseY > height/2 - 220 && mouseY < height/2 + 220) {
+    selection = true;
   }
 }
 
@@ -83,7 +90,7 @@ void updateTurn() {
   currentTurn %= numPlayers;
 }
 
-void displayCards(Player curr) {
+void displayPlayerCards(Player curr) {
   ArrayList<Card> cards = curr.getCards();
   for (int i = 0; i < cards.size(); i++) {
     PImage card = loadImage(cards.get(i).getImage());
@@ -105,6 +112,14 @@ void displayCards(Player curr) {
 
   for (int i = 0; i < playerList.get((currentTurn+3) % numPlayers).getCards().size(); i++) {
     image(faceDownH, 1100, (height/2 - ((float)(cards.size()/2))* 30) + (i*25));
+  }
+}
+
+void displayPlacedCards() {
+  for (int i = 0; i < playerSelection.size(); i++) {
+    PImage card = loadImage(playerSelection.get(i).getImage());
+    card.resize(75, 0);
+    image(card, (width/2 - 175) + (i*80), height/2-50);
   }
 }
 
