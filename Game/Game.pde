@@ -44,6 +44,7 @@ void draw() {
   if (selection) {
     displayPlacedCards();
   }
+  isGameOver();
 }
 
 void mouseClicked() {
@@ -64,7 +65,7 @@ void mouseClicked() {
 }
 
 void keyPressed() {
-  playerList.get(currentTurn).updateHand();
+  playerList.get(currentTurn).updateHand(playerSelection);
   updateTurn();
 }
 
@@ -124,5 +125,11 @@ void displayPlacedCards() {
 }
 
 boolean isGameOver() {
-  return true;
+  for (int i = 0; i < playerList.size(); i++) {
+     if (playerList.get(i).getCards().size() == 0) {
+       text("" + playerList.get(i).getName() + " wins", width/2, height/2);
+       return true;
+     }
+  }
+  return false;
 }
