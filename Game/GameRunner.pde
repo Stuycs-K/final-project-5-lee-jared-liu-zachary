@@ -1,4 +1,4 @@
-static int numPlayers = 4, currentTurn, currentPokerHand;
+static int numPlayers = 4, currentTurn, currentPokerHand = 0;
 static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
@@ -84,11 +84,14 @@ void mouseClicked() {
     }
   }
   if (mouseX < width/2 + 440 && mouseX > width/2 - 440 && mouseY > height/2 - 220 && mouseY < height/2 + 220) {
-    playerList.get(currentTurn).updateHand(playerSelection);
-    selection = true;
-    delay(500);
-    updateTurn();
-    selection = false;
+    if (isValid(currentPokerHand, playerSelection)) {
+      playerList.get(currentTurn).updateHand(playerSelection);
+      currentPokerHand = playerSelection.size();
+      selection = true;
+      delay(500);
+      updateTurn();
+      selection = false;
+    }
   }
 }
 
