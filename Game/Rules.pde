@@ -21,13 +21,24 @@ import java.util.*;
     if (pokerHand == 0) {
        return true; 
     }
-    else if (pokerHand == 1) {
+    else if (pokerHand == 1 || pokerHand == 3) {
        if (selection.get(0).getValue() == pre.get(0).getValue()) {
          return selection.get(0).getSuit() > pre.get(0).getSuit();
        }
        else {
          return selection.get(0).getValue() > pre.get(0).getValue(); 
        }
+    }
+    else if (pokerHand == 2) {
+      if (selection.get(0).getValue() == pre.get(0).getValue()) {
+        return selection.get(0).getSuit() > pre.get(0).getSuit()
+               || selection.get(1).getSuit() > pre.get(0).getSuit()
+               || selection.get(0).getSuit() > pre.get(1).getSuit()
+               || selection.get(1).getSuit() > pre.get(1).getSuit();
+      }
+      else {
+        return selection.get(0).getValue() > pre.get(0).getValue(); 
+      }
     }
     return false;
   }
