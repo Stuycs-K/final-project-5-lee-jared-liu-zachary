@@ -11,11 +11,22 @@ void setup() {
     }
     playerList.add(new Player("Player " + (i), giveToPlayer));
   }
-  for (int i = 0; i < playerList.size(); i++) {
-    System.out.println(playerList.get(i).getName() + " cards: " + playerList.get(i).getCards());
-  }
+  //for (int i = 0; i < playerList.size(); i++) {
+  //  System.out.println(playerList.get(i).getName() + " cards: " + playerList.get(i).getCards());
+  //}
   currentTurn = findFirstPlayer();
-  System.out.println(currentTurn);
+  //System.out.println(currentTurn);
+  ArrayList<Card> testa = new ArrayList<Card>();
+  ArrayList<Card> testb = new ArrayList<Card>();
+  testa.add(new Card(15, 0, "2 diamonds", ""));
+  testa.add(new Card(15, 3, "2 spades", ""));
+  testa.add(new Card(15, 3, "2 spades", ""));
+  testb.add(new Card(5, 1, "2 clubs", ""));
+  testb.add(new Card(5, 2, "2 hearts", ""));
+  testb.add(new Card(5, 3, "2 spades", ""));
+  System.out.println(testa);
+  System.out.println(testb);
+  System.out.println(isHigher(3, testa, testb));
 }
 
 void draw() {

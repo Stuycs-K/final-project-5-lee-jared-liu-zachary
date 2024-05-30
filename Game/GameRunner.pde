@@ -96,7 +96,7 @@ void mouseClicked() {
 }
 
 
-//void keyPressed() {
-//  updateTurn();
-//  selection = false;
-//}
+void keyPressed() {
+  updateTurn();
+  selection = false;
+}

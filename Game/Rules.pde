@@ -31,15 +31,26 @@ import java.util.*;
     }
     else if (pokerHand == 2) {
       if (selection.get(0).getValue() == pre.get(0).getValue()) {
-        return selection.get(0).getSuit() > pre.get(0).getSuit()
-               || selection.get(1).getSuit() > pre.get(0).getSuit()
-               || selection.get(0).getSuit() > pre.get(1).getSuit()
-               || selection.get(1).getSuit() > pre.get(1).getSuit();
+        Card highestOne;
+        if (pre.get(0).getSuit() > pre.get(1).getSuit()) {
+          highestOne = pre.get(0);
+        }
+        else {
+          highestOne = pre.get(1);
+        }
+        Card highestTwo;
+        if (selection.get(0).getSuit() > selection.get(1).getSuit()) {
+          highestTwo = selection.get(0);
+        }
+        else {
+          highestTwo = selection.get(1);
+        }
+        return highestTwo.getSuit() > highestOne.getSuit();
       }
       else {
         return selection.get(0).getValue() > pre.get(0).getValue(); 
       }
-    }
+    }   
     return false;
   }
   
@@ -77,12 +88,33 @@ import java.util.*;
     if (curr.size() != 5) {
       return false;
     }
+    return isFourOfAKind(curr) || isFullHouse(curr) || isFlush(curr) || isStraight(curr);
+  }
+  
+  boolean isFourOfAKind(ArrayList<Card> curr) {
+     sortCards(curr); 
+     return (curr.get(0).getValue() == curr.get(3).getValue()) || (curr.get(1).getValue() == curr.get(4).getValue());
+  }
+  
+  boolean isFullHouse(ArrayList<Card> curr) {
+     sortCards(curr);
+     return ((curr.get(0).getValue() == curr.get(2).getValue()) && (curr.get(3).getValue() == curr.get(4).getValue())) || ((curr.get(0).getValue() == curr.get(1).getValue()) && (curr.get(2).getValue() == curr.get(4).getValue()));
+  }
+  
+  boolean isStraight(ArrayList<Card> curr) {
+     sortCards(curr);
+     boolean straight = true;
+     for (int i = 0; i < curr.size() - 1; i++) {
+      if (curr.get(i + 1).getValue() != curr.get(i).getValue() + 1) {
+        straight = false;
+        break;
+       }
+      }
+      return straight;
+  }
+  
+  boolean isFlush(ArrayList<Card> curr) {
     sortCards(curr);
-    
-    boolean fourOfAKind = (curr.get(0).getValue() == curr.get(3).getValue()) || (curr.get(1).getValue() == curr.get(4).getValue());
-    
-    boolean fullHouse = ((curr.get(0).getValue() == curr.get(2).getValue()) && (curr.get(3).getValue() == curr.get(4).getValue())) || ((curr.get(0).getValue() == curr.get(1).getValue()) && (curr.get(2).getValue() == curr.get(4).getValue()));
-    
     boolean flush = true;
     int firstSuit = curr.get(0).getSuit();
     for (Card card : curr) {
@@ -91,14 +123,5 @@ import java.util.*;
         break;
       }
     }
-    
-    boolean straight = true;
-    for (int i = 0; i < curr.size() - 1; i++) {
-      if (curr.get(i + 1).getValue() != curr.get(i).getValue() + 1) {
-        straight = false;
-        break;
-      }
-    }
-    return fourOfAKind || fullHouse || flush || straight;
+    return flush;
   }
- 
