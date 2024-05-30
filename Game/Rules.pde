@@ -2,7 +2,7 @@ import java.util.*;
   
   boolean isValid(int pokerHand, ArrayList<Card> selection) {
     if (pokerHand == 0) {
-      return true;
+      return isSingle(selection) || isDouble(selection) || isTriple(selection) || isCombination(selection);
     }
     if (pokerHand == 1 && isSingle(selection)) {
       return true;
