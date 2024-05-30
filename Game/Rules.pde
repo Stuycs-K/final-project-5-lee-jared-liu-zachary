@@ -17,6 +17,21 @@ import java.util.*;
     }
   }
   
+  boolean isHigher(int pokerHand, ArrayList<Card> pre, ArrayList<Card> selection) {
+    if (pokerHand == 0) {
+       return true; 
+    }
+    else if (pokerHand == 1) {
+       if (selection.get(0).getValue() == pre.get(0).getValue()) {
+         return selection.get(0).getSuit() > pre.get(0).getSuit();
+       }
+       else {
+         return selection.get(0).getValue() > pre.get(0).getValue(); 
+       }
+    }
+    return false;
+  }
+  
   boolean isSingle(ArrayList<Card> curr) {
     return curr.size() == 1;
   }
