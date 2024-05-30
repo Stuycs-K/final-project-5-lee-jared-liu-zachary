@@ -84,7 +84,7 @@ void mouseClicked() {
     }
   }
   if (mouseX < width/2 + 440 && mouseX > width/2 - 440 && mouseY > height/2 - 220 && mouseY < height/2 + 220) {
-    if (isValid(currentPokerHand, playerSelection) && isHigher(currentPokerHand, previousCards, playerSelection)) {
+    if (isValid(currentPokerHand, previousCards, playerSelection) && isHigher(currentPokerHand, previousCards, playerSelection)) {
       playerList.get(currentTurn).updateHand(playerSelection);
       currentPokerHand = playerSelection.size();
       selection = true;

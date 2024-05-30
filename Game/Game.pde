@@ -16,17 +16,21 @@ void setup() {
   //}
   currentTurn = findFirstPlayer();
   //System.out.println(currentTurn);
-  ArrayList<Card> testa = new ArrayList<Card>();
-  ArrayList<Card> testb = new ArrayList<Card>();
-  testa.add(new Card(14, 0, "2 diamonds", ""));
-  testa.add(new Card(11, 0, "2 spades", ""));
-  testa.add(new Card(12, 0, "2 spades", ""));
-  testa.add(new Card(10, 0, "2 clubs", ""));
-  testa.add(new Card(13, 0, "2 hearts", ""));
-  testb.add(new Card(14, 3, "2 spades", ""));
+  ArrayList<Card> pre = new ArrayList<Card>();
+  ArrayList<Card> selection = new ArrayList<Card>();
+  pre.add(new Card(8, 2, "2 diamonds", ""));
+  pre.add(new Card(7, 2, "2 spades", ""));
+  pre.add(new Card(6, 1, "2 spades", ""));
+  pre.add(new Card(5, 1, "2 clubs", ""));
+  pre.add(new Card(4, 1, "2 hearts", ""));
+  selection.add(new Card(8, 1, "2 diamonds", ""));
+  selection.add(new Card(7, 2, "2 spades", ""));
+  selection.add(new Card(6, 3, "2 spades", ""));
+  selection.add(new Card(5, 2, "2 clubs", ""));
+  selection.add(new Card(4, 2, "2 hearts", ""));
   //System.out.println(testa);
   //System.out.println(testb);
-  System.out.println(isStraightFlush(testa));
+  System.out.println(isHigher(5,pre,selection));
 }
 
 void draw() {
