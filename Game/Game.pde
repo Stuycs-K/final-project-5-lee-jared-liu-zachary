@@ -18,15 +18,15 @@ void setup() {
   //System.out.println(currentTurn);
   ArrayList<Card> testa = new ArrayList<Card>();
   ArrayList<Card> testb = new ArrayList<Card>();
-  testa.add(new Card(15, 0, "2 diamonds", ""));
-  testa.add(new Card(15, 3, "2 spades", ""));
-  testa.add(new Card(15, 3, "2 spades", ""));
-  testb.add(new Card(5, 1, "2 clubs", ""));
-  testb.add(new Card(5, 2, "2 hearts", ""));
-  testb.add(new Card(5, 3, "2 spades", ""));
-  System.out.println(testa);
-  System.out.println(testb);
-  System.out.println(isHigher(3, testa, testb));
+  testa.add(new Card(14, 0, "2 diamonds", ""));
+  testa.add(new Card(11, 0, "2 spades", ""));
+  testa.add(new Card(12, 0, "2 spades", ""));
+  testa.add(new Card(10, 0, "2 clubs", ""));
+  testa.add(new Card(13, 0, "2 hearts", ""));
+  testb.add(new Card(14, 3, "2 spades", ""));
+  //System.out.println(testa);
+  //System.out.println(testb);
+  System.out.println(isStraightFlush(testa));
 }
 
 void draw() {

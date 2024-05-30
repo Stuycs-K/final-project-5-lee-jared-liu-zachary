@@ -50,7 +50,10 @@ import java.util.*;
       else {
         return selection.get(0).getValue() > pre.get(0).getValue(); 
       }
-    }   
+    }
+    else if (pokerHand == 5) {
+       
+    }
     return false;
   }
   
@@ -124,4 +127,13 @@ import java.util.*;
       }
     }
     return flush;
+  }
+  
+  boolean isStraightFlush(ArrayList<Card> curr) {
+    return isFlush(curr) && isStraight(curr); 
+  }
+  
+  boolean isRoyalFlush(ArrayList<Card> curr) {
+    sortCards(curr);
+    return isFlush(curr) && isStraight(curr) && curr.get(0).getValue() == 10; 
   }
