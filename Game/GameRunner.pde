@@ -30,7 +30,12 @@ void displayPlayerCards(Player curr) {
   for (int i = 0; i < cards.size(); i++) {
     PImage card = loadImage(cards.get(i).getImage());
     card.resize(75, 0);
-    image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 675);
+    if (playerSelection.contains(cards.get(i))) {
+      image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 650);
+    }
+    else {
+      image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 675);
+    }
   }
 
   PImage faceDownV = loadImage("./PlayingCardsS/b2.png");
