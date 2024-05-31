@@ -1,3 +1,5 @@
+import processing.sound.*;
+
 static int numPlayers = 4, currentTurn, currentPokerHand = 0;
 static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
@@ -5,6 +7,7 @@ static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false;
 static int playerPass = 0;
+SoundFile cardClicked;
 
 int findFirstPlayer() {
   int firstPlayer = 0;
@@ -97,6 +100,8 @@ void mouseClicked() {
     else {
       playerSelection.remove(toAdd); 
     }
+    cardClicked = new SoundFile(this, "Sound/cardclicked.mp3");
+    cardClicked.play();
   }
   if (mouseX < width/2 + 440 && mouseX > width/2 - 440 && mouseY > height/2 - 220 && mouseY < height/2 + 220) {
     if (isValid(currentPokerHand, previousCards, playerSelection) && isHigher(currentPokerHand, previousCards, playerSelection)) {
