@@ -7,7 +7,7 @@ static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false;
 static int playerPass = 0;
-SoundFile cardClicked;
+SoundFile cardClicked, cardPlaced;
 
 int findFirstPlayer() {
   int firstPlayer = 0;
@@ -110,6 +110,8 @@ void mouseClicked() {
       playerPass = 0;
       selection = true;
       delay(500);
+      cardPlaced = new SoundFile(this, "Sound/cardplaced.mp3");
+      cardPlaced.play();
       updateTurn();
       selection = false;
     }
