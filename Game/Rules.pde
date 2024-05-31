@@ -1,15 +1,16 @@
 import java.util.*;
-
-public class Rules {
   
-  boolean isValid(ArrayList<Card> pre, ArrayList<Card> curr) {
-    if (isSingle(pre) && isSingle(curr)) {
+  boolean isValid(int pokerHand, ArrayList<Card> selection) {
+    if (pokerHand == 0) {
       return true;
-    } else if (isDouble(pre) && isDouble(curr)) {
+    }
+    if (pokerHand == 1 && isSingle(selection)) {
       return true;
-    } else if (isTriple(pre) && isTriple(curr)) {
+    } else if (pokerHand == 2 && isDouble(selection)) {
       return true;
-    } else if (isCombination(pre) && isCombination(curr)) {
+    } else if (pokerHand == 3 && isTriple(selection)) {
+      return true;
+    } else if (pokerHand == 5 && isCombination(selection)) {
       return true;
     } else {
       return false;
@@ -74,5 +75,4 @@ public class Rules {
     }
     return fourOfAKind || fullHouse || flush || straight;
   }
-  
-}
+ 
