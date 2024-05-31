@@ -8,7 +8,7 @@ public class Deck {
     for (int i = 3; i <= 15; i++) {
       for (int j = 0; j <= 3; j++) {
         if (i == 11) {
-          deck.add(new Card(i, j, "Jack of " + suitNames[j], "" + i + j));
+          deck.add(new Card(i, j, "Jack of " + suitNames[j], ""  + i + j));
         }
         else if (i == 12) {
           deck.add(new Card(i, j, "Queen of " + suitNames[j], "" + i + j));

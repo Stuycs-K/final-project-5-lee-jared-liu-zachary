@@ -1,9 +1,13 @@
+import processing.sound.*;
+
 static int numPlayers = 4, currentTurn, currentPokerHand = 0;
 static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false;
+static int playerPass = 0;
+SoundFile cardClicked;
 
 int findFirstPlayer() {
   int firstPlayer = 0;
@@ -50,7 +54,7 @@ void displayPlacedCards() {
   for (int i = 0; i < previousCards.size(); i++) {
     PImage card = loadImage(previousCards.get(i).getImage());
     card.resize(75, 0);
-    image(card, (width/2 - 175) + (i*80), height/2-50);
+    image(card, (width/2 - 220) + (i*90), height/2-50);
   }
 }
 
@@ -59,6 +63,20 @@ void updateTurn() {
   playerSelection = new ArrayList<Card>();
   currentTurn++;
   currentTurn %= numPlayers;
+}
+
+void passTurn() {
+ playerPass++;
+ if (playerPass == numPlayers - 1) {
+   playerPass = 0;
+   currentPokerHand = 0;
+   currentTurn++;
+   currentTurn %= numPlayers;
+ }
+ else {
+   currentTurn++;
+   currentTurn %= numPlayers;
+ }
 }
 
 boolean isGameOver() {
@@ -82,11 +100,14 @@ void mouseClicked() {
     else {
       playerSelection.remove(toAdd); 
     }
+    cardClicked = new SoundFile(this, "Sound/cardclicked.mp3");
+    cardClicked.play();
   }
   if (mouseX < width/2 + 440 && mouseX > width/2 - 440 && mouseY > height/2 - 220 && mouseY < height/2 + 220) {
-    if (isValid(currentPokerHand, playerSelection)) {
+    if (isValid(currentPokerHand, previousCards, playerSelection) && isHigher(currentPokerHand, previousCards, playerSelection)) {
       playerList.get(currentTurn).updateHand(playerSelection);
       currentPokerHand = playerSelection.size();
+      playerPass = 0;
       selection = true;
       delay(500);
       updateTurn();
@@ -96,7 +117,11 @@ void mouseClicked() {
 }
 
 
-//void keyPressed() {
-//  updateTurn();
-//  selection = false;
-//}
+void keyPressed() {
+  if (key == 'p') {
+    passTurn();
+  }
+  if (key == 's') {
+    sortCards(playerList.get(currentTurn).getCards()); 
+  }
+}
