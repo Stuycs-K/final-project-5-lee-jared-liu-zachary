@@ -29,6 +29,16 @@ Start creating visuals (background color, displaying cards, changing orientation
 Continued working on game logic, created method to allow player to select cards, can see cards selected  
 Will continue to work on game logic using Rules class.
 
+### 5/29
+
+Created a GameRunnner class to hold all of the methods that run the game  
+Created gameover() method, updated user interface allowing places to place cards in the center  
+
+### 5/30 
+
+Created the isHigher() method and created a hierarchy for singles, pairs, triples, and ALL combinations of 5-card hands
+Created a way of passing  
+
 ## GROUP MEMBER 2
 
 ### 5/22
