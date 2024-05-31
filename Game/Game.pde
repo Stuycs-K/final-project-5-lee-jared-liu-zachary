@@ -1,7 +1,14 @@
+import processing.sound.*;
+
 import java.util.*;
+
+SoundFile casino;
 
 void setup() {
   size(1250, 800);
+  casino = new SoundFile(this, "Sound/bettercasino.mp3");
+  casino.amp(0);
+  casino.loop();
   Deck test = new Deck();
   test.shuffleDeck();
   for (int i = 0; i < numPlayers; i++) {
