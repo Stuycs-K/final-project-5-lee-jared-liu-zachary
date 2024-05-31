@@ -43,6 +43,14 @@ void draw() {
   strokeWeight(2);
   ellipse(width/2, height/2, 840, 440);
   displayPlayerCards(playerList.get(currentTurn));
+  stroke(color(53, 101, 77));
+  strokeWeight(4);
+  rectMode(CENTER);
+  rect(width/2-183, height/2+3, 80, 110, 10);
+  rect(width/2-93, height/2+3, 80, 110, 10);
+  rect(width/2-3, height/2+3, 80, 110, 10);
+  rect(width/2+87, height/2+3, 80, 110, 10);
+  rect(width/2+177, height/2+3, 80, 110, 10);
   fill(255);
   text("Player " + currentTurn + "'s Turn", 75, 30);
   textSize(20);

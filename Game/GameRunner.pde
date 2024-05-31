@@ -51,7 +51,7 @@ void displayPlacedCards() {
   for (int i = 0; i < previousCards.size(); i++) {
     PImage card = loadImage(previousCards.get(i).getImage());
     card.resize(75, 0);
-    image(card, (width/2 - 175) + (i*80), height/2-50);
+    image(card, (width/2 - 220) + (i*90), height/2-50);
   }
 }
 
@@ -113,5 +113,10 @@ void mouseClicked() {
 
 
 void keyPressed() {
-  passTurn();
+  if (key == 'p') {
+    passTurn();
+  }
+  if (key == 's') {
+    sortCards(playerList.get(currentTurn).getCards()); 
+  }
 }
