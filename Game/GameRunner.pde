@@ -4,6 +4,7 @@ static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false;
+static int playerPass = 0;
 
 int findFirstPlayer() {
   int firstPlayer = 0;
@@ -61,6 +62,20 @@ void updateTurn() {
   currentTurn %= numPlayers;
 }
 
+void passTurn() {
+ playerPass++;
+ if (playerPass == numPlayers - 1) {
+   playerPass = 0;
+   currentPokerHand = 0;
+   currentTurn++;
+   currentTurn %= numPlayers;
+ }
+ else {
+   currentTurn++;
+   currentTurn %= numPlayers;
+ }
+}
+
 boolean isGameOver() {
   for (int i = 0; i < playerList.size(); i++) {
      if (playerList.get(i).getCards().size() == 0) {
@@ -87,6 +102,7 @@ void mouseClicked() {
     if (isValid(currentPokerHand, previousCards, playerSelection) && isHigher(currentPokerHand, previousCards, playerSelection)) {
       playerList.get(currentTurn).updateHand(playerSelection);
       currentPokerHand = playerSelection.size();
+      playerPass = 0;
       selection = true;
       delay(500);
       updateTurn();
@@ -97,6 +113,5 @@ void mouseClicked() {
 
 
 void keyPressed() {
-  updateTurn();
-  selection = false;
+  passTurn();
 }

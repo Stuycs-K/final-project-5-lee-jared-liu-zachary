@@ -16,21 +16,21 @@ void setup() {
   //}
   currentTurn = findFirstPlayer();
   //System.out.println(currentTurn);
-  ArrayList<Card> pre = new ArrayList<Card>();
-  ArrayList<Card> selection = new ArrayList<Card>();
-  pre.add(new Card(8, 2, "2 diamonds", ""));
-  pre.add(new Card(7, 2, "2 spades", ""));
-  pre.add(new Card(6, 1, "2 spades", ""));
-  pre.add(new Card(5, 1, "2 clubs", ""));
-  pre.add(new Card(4, 1, "2 hearts", ""));
-  selection.add(new Card(8, 1, "2 diamonds", ""));
-  selection.add(new Card(7, 2, "2 spades", ""));
-  selection.add(new Card(6, 3, "2 spades", ""));
-  selection.add(new Card(5, 2, "2 clubs", ""));
-  selection.add(new Card(4, 2, "2 hearts", ""));
+  //ArrayList<Card> pre = new ArrayList<Card>();
+  //ArrayList<Card> selection = new ArrayList<Card>();
+  //pre.add(new Card(8, 2, "2 diamonds", ""));
+  //pre.add(new Card(7, 2, "2 spades", ""));
+  //pre.add(new Card(6, 1, "2 spades", ""));
+  //pre.add(new Card(5, 1, "2 clubs", ""));
+  //pre.add(new Card(4, 1, "2 hearts", ""));
+  //selection.add(new Card(8, 1, "2 diamonds", ""));
+  //selection.add(new Card(7, 2, "2 spades", ""));
+  //selection.add(new Card(6, 3, "2 spades", ""));
+  //selection.add(new Card(5, 2, "2 clubs", ""));
+  //selection.add(new Card(4, 2, "2 hearts", ""));
   //System.out.println(testa);
   //System.out.println(testb);
-  System.out.println(isHigher(5,pre,selection));
+  //System.out.println(isHigher(5,pre,selection));
 }
 
 void draw() {
@@ -44,7 +44,7 @@ void draw() {
   ellipse(width/2, height/2, 840, 440);
   displayPlayerCards(playerList.get(currentTurn));
   fill(255);
-  text("" + currentTurn, 20, 20);
+  text("Player " + currentTurn + "'s Turn", 75, 30);
   textSize(20);
   textAlign(CENTER);
   text("" + playerSelection, width/2, 660);
