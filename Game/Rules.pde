@@ -11,7 +11,10 @@ import java.util.*;
     } else if (pokerHand == 3 && isTriple(selection)) {
       return true;
     } else if (pokerHand == 5) {
-      if (isRoyalFlush(pre)) {
+      if (selection.size() < 5) {
+        return false;
+      }
+      else if (isRoyalFlush(pre)) {
         return isRoyalFlush(selection); 
       }
       else if (isStraightFlush(pre)) {
