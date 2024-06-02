@@ -36,8 +36,12 @@ Created gameover() method, updated user interface allowing places to place cards
 
 ### 5/30 
 
-Created the isHigher() method and created a hierarchy for singles, pairs, triples, and ALL combinations of 5-card hands
+Created the isHigher() method and created a hierarchy for singles, pairs, triples, and ALL combinations of 5-card hands  
 Created a way of passing  
+
+### 5/31
+
+Completed the game logic, game is now running smoothly, minor bug fixes like 5-card hand selection bugs
 
 ## GROUP MEMBER 2
 
