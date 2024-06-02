@@ -1,6 +1,6 @@
 import processing.sound.*;
 
-static int numPlayers = 4, currentTurn, currentPokerHand = 0;
+static int numPlayers = 2, currentTurn, currentPokerHand = 0;
 static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
@@ -88,6 +88,7 @@ boolean isGameOver() {
   for (int i = 0; i < playerList.size(); i++) {
      if (playerList.get(i).getCards().size() == 0) {
        text("" + playerList.get(i).getName() + " wins", width/2, height/2);
+       selection = true;
        return true;
      }
   }
@@ -98,15 +99,19 @@ void mouseClicked() {
   ArrayList<Card> cards = playerList.get(currentTurn).getCards();
   if (mouseY > 675 && mouseY < 780 && selection == false) {
     int i = (mouseX - (width/2) + (cards.size()/2*80))/80;
-    Card toAdd = cards.get(i);
-    if (!playerSelection.contains(toAdd) && playerSelection.size() < 5) {
-      playerSelection.add(cards.get(i));
+    if (i < cards.size()) {
+      Card toAdd = cards.get(i);
+      if (!playerSelection.contains(toAdd) && playerSelection.size() < 5) {
+        playerSelection.add(cards.get(i));
+        cardClicked = new SoundFile(this, "Sound/cardclicked.mp3");
+        cardClicked.play();
+      }
+      else {
+        playerSelection.remove(toAdd);
+        cardClicked = new SoundFile(this, "Sound/cardclicked.mp3");
+      cardClicked.play();
+      }
     }
-    else {
-      playerSelection.remove(toAdd); 
-    }
-    cardClicked = new SoundFile(this, "Sound/cardclicked.mp3");
-    cardClicked.play();
   }
   if (mouseX < width/2 + 440 && mouseX > width/2 - 440 && mouseY > height/2 - 220 && mouseY < height/2 + 220) {
     if (isValid(currentPokerHand, previousCards, playerSelection) && isHigher(currentPokerHand, previousCards, playerSelection)) {
