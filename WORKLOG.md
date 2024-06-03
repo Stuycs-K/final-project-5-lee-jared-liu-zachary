@@ -43,6 +43,11 @@ Created a way of passing
 
 Completed the game logic, game is now running smoothly, minor bug fixes like 5-card hand selection bugs
 
+### 6/1-2
+
+Test runs of the game, fixed minor bugs like selecting outside card range, displaying cards fixed for # of players other than 4  
+Some tweaks with decoration and text formatting
+
 ## GROUP MEMBER 2
 
 ### 5/22
