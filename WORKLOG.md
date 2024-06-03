@@ -76,3 +76,9 @@ Finished updateHand() in Player
 ### 5/30
 Added sound for background and card selections  
 Experimented on variations of certain sounds for specific parts of the game
+
+### 5/31
+Added sound for card placement  
+
+### 6/1-2
+Away with family, unable to access computer  
