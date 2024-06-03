@@ -45,10 +45,10 @@ void draw() {
   fill(color(72, 120, 96));
   stroke(color(53, 101, 77));
   strokeWeight(10);
-  ellipse(width/2, height/2, 850, 450);
+  ellipse(width/2, height/2, 800, 400);
   stroke(color(255));
   strokeWeight(2);
-  ellipse(width/2, height/2, 840, 440);
+  ellipse(width/2, height/2, 790, 390);
   displayPlayerCards(playerList.get(currentTurn));
   stroke(color(53, 101, 77));
   strokeWeight(4);
@@ -62,7 +62,7 @@ void draw() {
   text("Player " + currentTurn + "'s Turn", 75, 30);
   textSize(20);
   textAlign(CENTER);
-  text("" + playerSelection, width/2, 660);
+  text("" + playerSelection, width/2, 630);
   displayPlacedCards();
   isGameOver();
 }

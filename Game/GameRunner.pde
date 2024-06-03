@@ -27,26 +27,70 @@ int findFirstPlayer() {
 
 void displayPlayerCards(Player curr) {
   ArrayList<Card> cards = curr.getCards();
-  for (int i = 0; i < cards.size(); i++) {
-    PImage card = loadImage(cards.get(i).getImage());
-    card.resize(75, 0);
-    image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 675);
-  }
-
   PImage faceDownV = loadImage("./PlayingCardsS/b2.png");
   PImage faceDownH = loadImage("./PlayingCardsS/b2.1.png");
   faceDownV.resize(75, 0);
   faceDownH.resize(0, 75);
-  for (int i = 0; i < playerList.get((currentTurn+1) % numPlayers).getCards().size(); i++) {
-    image(faceDownH, 50, (height/2 - ((float)(cards.size()/2))* 30) + (i*25));
+  if (numPlayers == 4) {
+    for (int i = 0; i < cards.size(); i++) {
+      PImage card = loadImage(cards.get(i).getImage());
+      card.resize(75, 0);
+      if (playerSelection.contains(cards.get(i))) {
+        image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 650);
+      }
+      else {
+        image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 675);
+      }
+    }
+    
+    for (int i = 0; i < playerList.get((currentTurn+1) % numPlayers).getCards().size(); i++) {
+      image(faceDownH, 50, (height/2 - ((float)(cards.size()/2))* 30) + (i*25));
+    }
+  
+    for (int i = 0; i < playerList.get((currentTurn+2) % numPlayers).getCards().size(); i++) {
+      image(faceDownV, (width/2 - ((float)(cards.size()/2))* 55) + (i*50), 25);
+    }
+  
+    for (int i = 0; i < playerList.get((currentTurn+3) % numPlayers).getCards().size(); i++) {
+      image(faceDownH, 1100, (height/2 - ((float)(cards.size()/2))* 30) + (i*25));
+    }
   }
-
-  for (int i = 0; i < playerList.get((currentTurn+2) % numPlayers).getCards().size(); i++) {
-    image(faceDownV, (width/2 - ((float)(cards.size()/2))* 55) + (i*50), 25);
+  else if (numPlayers == 3) {
+     for (int i = 0; i < cards.size(); i++) {
+      PImage card = loadImage(cards.get(i).getImage());
+      card.resize(75, 0);
+      if (playerSelection.contains(cards.get(i))) {
+        image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 650);
+      }
+      else {
+        image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 675);
+      }
+    }
+    
+    for (int i = 0; i < playerList.get((currentTurn+1) % numPlayers).getCards().size(); i++) {
+      image(faceDownH, 50, (height/2 - ((float)(cards.size()/2))* 30) + (i*25));
+    }
+  
+    for (int i = 0; i < playerList.get((currentTurn+2) % numPlayers).getCards().size(); i++) {
+      image(faceDownV, (width/2 - ((float)(cards.size()/2))* 55) + (i*50), 25);
+    }
   }
-
-  for (int i = 0; i < playerList.get((currentTurn+3) % numPlayers).getCards().size(); i++) {
-    image(faceDownH, 1100, (height/2 - ((float)(cards.size()/2))* 30) + (i*25));
+  else {
+    for (int i = 0; i < cards.size(); i++) {
+      PImage card = loadImage(cards.get(i).getImage());
+      card.resize(75, 0);
+      if (playerSelection.contains(cards.get(i))) {
+        image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 650);
+      }
+      else {
+        image(card, (width/2 - ((float)(cards.size()/2))* 80) + (i*80), 675);
+      }
+    }
+    
+    for (int i = 0; i < playerList.get((currentTurn+1) % numPlayers).getCards().size(); i++) {
+      image(faceDownV, (width/2 - ((float)(cards.size()/2))* 55) + (i*50), 25);
+    }
+    
   }
 }
   
@@ -82,7 +126,12 @@ void passTurn() {
 boolean isGameOver() {
   for (int i = 0; i < playerList.size(); i++) {
      if (playerList.get(i).getCards().size() == 0) {
-       text("" + playerList.get(i).getName() + " wins", width/2, height/2);
+       textSize(100);
+       fill(0);
+       text("" + playerList.get(i).getName() + " wins!", width/2, height/2);
+       textSize(20);
+       fill(255);
+       selection = true;
        return true;
      }
   }
@@ -93,17 +142,21 @@ void mouseClicked() {
   ArrayList<Card> cards = playerList.get(currentTurn).getCards();
   if (mouseY > 675 && mouseY < 780 && selection == false) {
     int i = (mouseX - (width/2) + (cards.size()/2*80))/80;
-    Card toAdd = cards.get(i);
-    if (!playerSelection.contains(toAdd) && playerSelection.size() < 5) {
-      playerSelection.add(cards.get(i));
+    if (i < cards.size()) {
+      Card toAdd = cards.get(i);
+      if (!playerSelection.contains(toAdd) && playerSelection.size() < 5) {
+        playerSelection.add(cards.get(i));
+        cardClicked = new SoundFile(this, "Sound/cardclicked.mp3");
+        cardClicked.play();
+      }
+      else {
+        playerSelection.remove(toAdd);
+        cardClicked = new SoundFile(this, "Sound/cardclicked.mp3");
+      cardClicked.play();
+      }
     }
-    else {
-      playerSelection.remove(toAdd); 
-    }
-    cardClicked = new SoundFile(this, "Sound/cardclicked.mp3");
-    cardClicked.play();
   }
-  if (mouseX < width/2 + 440 && mouseX > width/2 - 440 && mouseY > height/2 - 220 && mouseY < height/2 + 220) {
+  if (mouseX < width/2 + 300 && mouseX > width/2 - 300 && mouseY > height/2 - 200 && mouseY < height/2 + 200) {
     if (isValid(currentPokerHand, previousCards, playerSelection) && isHigher(currentPokerHand, previousCards, playerSelection)) {
       playerList.get(currentTurn).updateHand(playerSelection);
       currentPokerHand = playerSelection.size();
