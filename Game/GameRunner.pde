@@ -6,6 +6,7 @@ static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false, isStartScreen = true, isLoadingScreen = false;
+String placedCardText = "";
 static int playerPass = 0;
 SoundFile cardClicked, cardPlaced;
 PFont pixel, pixel2;
@@ -186,6 +187,7 @@ void mouseClicked() {
         playerPass = 0;
         selection = true;
         delay(500);
+        placedCardText(playerSelection);
         cardPlaced = new SoundFile(this, "Sound/cardplaced.mp3");
         cardPlaced.play();
         updateTurn();
@@ -195,6 +197,35 @@ void mouseClicked() {
   }
 }
 
+void placedCardText(ArrayList<Card> selection) {
+  if (isSingle(selection)) {
+    placedCardText = "Single " + selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")); 
+  }
+  else if (isDouble(selection)) {
+    placedCardText = "Pair of " + selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")) + "s"; 
+  }
+  else if (isTriple(selection)) {
+    placedCardText = "Triple " + selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")) + "s"; 
+  }
+  else if (isStraight(selection)) {
+    placedCardText = "" + selection.get(4).getNameOfCard().substring(0,selection.get(4).getNameOfCard().indexOf(" ")) + "-High Straight"; 
+  }
+  else if (isFlush(selection)) {
+    placedCardText = "" + selection.get(4).getNameOfCard().substring(0,selection.get(4).getNameOfCard().indexOf(" ")) + "-High Flush"; 
+  }
+  else if (isFullHouse(selection)) {
+    placedCardText = "Full House " + selection.get(2).getNameOfCard().substring(0,selection.get(2).getNameOfCard().indexOf(" ")) + "s Full Of ";
+    if (selection.get(2).getNameOfCard().substring(0,selection.get(2).getNameOfCard().indexOf(" ")).equals(selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")))) {
+      placedCardText += selection.get(4).getNameOfCard().substring(0,selection.get(4).getNameOfCard().indexOf(" ")) + "s";
+    }
+    else {
+      placedCardText += selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")) + "s";
+    }
+  }
+  else if (isFourOfAKind(selection)) { 
+     placedCardText = "Quad " + selection.get(2).getNameOfCard().substring(0,selection.get(2).getNameOfCard().indexOf(" ")) + "s"; 
+  }
+}
 
 void keyPressed() {
   if (key == 'p') {

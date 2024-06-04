@@ -84,6 +84,7 @@ void gameScreen() {
   text("Player " + currentTurn + "'s Turn", 80, 30);
   textAlign(CENTER);
   text("" + playerSelection, width/2, 635);
+  text(placedCardText, width/2, 330);
   displayPlacedCards();
   isGameOver();
 }
