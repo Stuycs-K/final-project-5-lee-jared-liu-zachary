@@ -5,74 +5,10 @@ static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCards = new ArrayList<Card>();
-static boolean selection = false;
-static boolean isStartScreen = true;
+static boolean selection = false, isStartScreen = true, isLoadingScreen = false;
 static int playerPass = 0;
 SoundFile cardClicked, cardPlaced;
 PFont pixel, pixel2;
-
-void startScreen() {
-  background(color(72, 120, 96));
-  pixel = createFont("Pixel.ttf", 50);
-  pixel2 = createFont("Pixel2.otf", 23);
-  textFont(pixel);
-  textAlign(CENTER);
-  fill(color(255, 74, 89));
-  text("Chinese", width/2-50, height/2-175);
-  fill(color(38, 28, 29));
-  text("Poker", width/2+90, height/2-100);
-  fill(color(255));
-  textFont(pixel, 20);
-  text("Select Number of Players:", width/2, height/2+25);
-  stroke(color(255, 74, 89));
-  strokeWeight(3);
-  fill(color(255));
-  if (mouseX > 100 && mouseX < 350 && mouseY > 500 && mouseY < 580) {
-    fill(color(255, 74, 89));
-  }
-  rect(100, 500, 250, 80);
-  fill(color(255));
-  if (mouseX > 500 && mouseX < 750 && mouseY > 500 && mouseY < 580) {
-    fill(color(255, 74, 89));
-  }
-  rect(500, 500, 250, 80);
-  fill(color(255));
-  if (mouseX > 900 && mouseX < 1150 && mouseY > 500 && mouseY < 580) {
-    fill(color(255, 74, 89));
-  }
-  rect(900, 500, 250, 80);
-  fill(color(38, 28, 29));
-  text("2 Players", 225, 545);
-  text("3 Players", 625, 545);
-  text("4 Players", 1025, 545);
-}
-
-void gameScreen() {
-  textFont(pixel2);
-  background(color(72, 120, 96));
-  fill(color(72, 120, 96));
-  stroke(color(53, 101, 77));
-  strokeWeight(10);
-  ellipse(width/2, height/2, 800, 400);
-  stroke(color(255));
-  strokeWeight(2);
-  ellipse(width/2, height/2, 790, 390);
-  displayPlayerCards(playerList.get(currentTurn));
-  stroke(color(53, 101, 77));
-  strokeWeight(4);
-  rectMode(CENTER);
-  rect(width/2-183, height/2+3, 80, 110, 10);
-  rect(width/2-93, height/2+3, 80, 110, 10);
-  rect(width/2-3, height/2+3, 80, 110, 10);
-  rect(width/2+87, height/2+3, 80, 110, 10);
-  rect(width/2+177, height/2+3, 80, 110, 10);
-  fill(255);
-  text("Player " + currentTurn + "'s Turn", 80, 30);
-  textAlign(CENTER);
-  text("" + playerSelection, width/2, 635);
-  displayPlacedCards();
-  isGameOver();
-}
 
 void setupGame() {
   Deck test = new Deck();
@@ -214,24 +150,21 @@ void mouseClicked() {
   if (isStartScreen) {
     if (mouseX > 100 && mouseX < 350 && mouseY > 500 && mouseY < 580) {
       numPlayers = 2;
-      cardClicked.play();
-      delay(500);
-      setupGame();
       isStartScreen = false;
+      isLoadingScreen = true;
+      setupGame();
     } else if (mouseX > 500 && mouseX < 750 && mouseY > 500 && mouseY < 580) {
       numPlayers = 3;
-      cardClicked.play();
-      delay(500);
-      setupGame();
       isStartScreen = false;
+      isLoadingScreen = true;
+      setupGame();
     } else if (mouseX > 900 && mouseX < 1150 && mouseY > 500 && mouseY < 580) {
       numPlayers = 4;
-      cardClicked.play();
-      delay(500);
-      setupGame();
       isStartScreen = false;
+      isLoadingScreen = true;
+      setupGame();
     }
-  } else {
+  } else if (!isLoadingScreen) {
     ArrayList<Card> cards = playerList.get(currentTurn).getCards();
     if (mouseY > 675 && mouseY < 780 && selection == false) {
       int i = (mouseX - (width/2) + (cards.size()/2*80))/80;
