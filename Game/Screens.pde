@@ -61,6 +61,12 @@ void loadingScreen() {
   }
 }
 
+void firstPlayerScreen() {
+   background(color(72, 120, 96));
+   fill(color(255, 74, 89));
+   text(playerList.get(currentTurn).getName() + " is the first player", width/2, height/2);
+}
+
 void gameScreen() {
   textFont(pixel2);
   background(color(72, 120, 96));

@@ -202,7 +202,7 @@ void placedCardText(ArrayList<Card> selection) {
     placedCardText = "Single " + selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")); 
   }
   else if (isDouble(selection)) {
-    placedCardText = "Pair of " + selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")) + "s"; 
+    placedCardText = "Pair " + selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")) + "s"; 
   }
   else if (isTriple(selection)) {
     placedCardText = "Triple " + selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")) + "s"; 
