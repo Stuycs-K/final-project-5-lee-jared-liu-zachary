@@ -207,11 +207,14 @@ void placedCardText(ArrayList<Card> selection) {
   else if (isTriple(selection)) {
     placedCardText = "Triple " + selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")) + "s"; 
   }
-  else if (isStraight(selection)) {
-    placedCardText = "" + selection.get(4).getNameOfCard().substring(0,selection.get(4).getNameOfCard().indexOf(" ")) + "-High Straight"; 
+  else if (isRoyalFlush(selection)) {
+    placedCardText = "Royal Flush";
   }
-  else if (isFlush(selection)) {
-    placedCardText = "" + selection.get(4).getNameOfCard().substring(0,selection.get(4).getNameOfCard().indexOf(" ")) + "-High Flush"; 
+  else if (isStraightFlush(selection)) {
+     placedCardText = "" + selection.get(4).getNameOfCard().substring(0,selection.get(4).getNameOfCard().indexOf(" ")) + "-High Straight Flush";
+  }
+  else if (isFourOfAKind(selection)) { 
+    placedCardText = "Quad " + selection.get(2).getNameOfCard().substring(0,selection.get(2).getNameOfCard().indexOf(" ")) + "s"; 
   }
   else if (isFullHouse(selection)) {
     placedCardText = "Full House " + selection.get(2).getNameOfCard().substring(0,selection.get(2).getNameOfCard().indexOf(" ")) + "s Full Of ";
@@ -222,8 +225,11 @@ void placedCardText(ArrayList<Card> selection) {
       placedCardText += selection.get(0).getNameOfCard().substring(0,selection.get(0).getNameOfCard().indexOf(" ")) + "s";
     }
   }
-  else if (isFourOfAKind(selection)) { 
-     placedCardText = "Quad " + selection.get(2).getNameOfCard().substring(0,selection.get(2).getNameOfCard().indexOf(" ")) + "s"; 
+  else if (isFlush(selection)) {
+    placedCardText = "" + selection.get(4).getNameOfCard().substring(0,selection.get(4).getNameOfCard().indexOf(" ")) + "-High Flush"; 
+  }
+  else if (isStraight(selection)) {
+    placedCardText = "" + selection.get(4).getNameOfCard().substring(0,selection.get(4).getNameOfCard().indexOf(" ")) + "-High Straight"; 
   }
 }
 
