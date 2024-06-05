@@ -8,7 +8,7 @@ static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false, isStartScreen = true, isLoadingScreen = false;
 String placedCardText = "";
 static int playerPass = 0;
-SoundFile cardClicked, cardPlaced;
+SoundFile cardClicked, cardPlaced, playersSelected;
 PFont pixel, pixel2;
 
 void setupGame() {
@@ -154,6 +154,7 @@ void mouseClicked() {
       isStartScreen = false;
       isLoadingScreen = true;
       setupGame();
+      
     } else if (mouseX > 500 && mouseX < 750 && mouseY > 500 && mouseY < 580) {
       numPlayers = 3;
       isStartScreen = false;
