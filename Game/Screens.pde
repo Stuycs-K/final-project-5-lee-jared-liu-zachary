@@ -2,6 +2,7 @@ int countdown = 0, musicOn = 1, switchScreen = 0;
 SoundFile shuffling;
 
 void startScreen() {
+  rectMode(CORNER);
   background(color(72, 120, 96));
   pixel = createFont("Pixel.ttf", 50);
   pixel2 = createFont("Pixel2.otf", 23);
