@@ -8,6 +8,7 @@ static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false, isStartScreen = true, isLoadingScreen = false, restart = false;
 String placedCardText = "";
 static int playerPass = 0;
+static int colorChoice = 1;
 SoundFile cardClicked, cardPlaced, playersSelected;
 PFont pixel, pixel2;
 
@@ -42,8 +43,8 @@ int findFirstPlayer() {
 
 void displayPlayerCards(Player curr) {
   ArrayList<Card> cards = curr.getCards();
-  PImage faceDownV = loadImage("./PlayingCardsS/b2.png");
-  PImage faceDownH = loadImage("./PlayingCardsS/b2.1.png");
+  PImage faceDownV = loadImage("./PlayingCardsS/b" + colorChoice + ".png");
+  PImage faceDownH = loadImage("./PlayingCardsS/b" + colorChoice + ".1.png");
   faceDownV.resize(75, 0);
   faceDownH.resize(0, 75);
   if (numPlayers == 4) {
@@ -263,5 +264,20 @@ void keyPressed() {
       musicOn = 1;
       switchScreen = 0;
     }
+  }
+  if (key == '1') {
+    colorChoice = 1;
+  }
+  if (key == '2') {
+    colorChoice = 2;
+  }
+  if (key == '3') {
+    colorChoice = 3;
+  }
+  if (key == '4') {
+    colorChoice = 4;
+  }
+  if (key == '5') {
+    colorChoice = 5;
   }
 }
