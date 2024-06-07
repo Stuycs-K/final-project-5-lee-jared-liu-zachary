@@ -5,7 +5,7 @@ static ArrayList<Player> playerList = new ArrayList<Player>();
 static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCards = new ArrayList<Card>();
-static boolean selection = false, isStartScreen = true, isLoadingScreen = false;
+static boolean selection = false, isStartScreen = true, isLoadingScreen = false, restart = false;
 String placedCardText = "";
 static int playerPass = 0;
 SoundFile cardClicked, cardPlaced, playersSelected;
@@ -134,12 +134,15 @@ void passTurn() {
 boolean isGameOver() {
   for (int i = 0; i < playerList.size(); i++) {
     if (playerList.get(i).getCards().size() == 0) {
+      background(color(72, 120, 96));
       textSize(100);
-      fill(0);
+      fill(color(230,182,39));
       text("" + playerList.get(i).getName() + " wins!", width/2, height/2);
       textSize(20);
       fill(255);
+      text("Press [r] to start a new game", width/2, height/2 + 75);
       selection = true;
+      restart = true;
       return true;
     }
   }
@@ -243,5 +246,22 @@ void keyPressed() {
   }
   if (key == 's') {
     sortCards(playerList.get(currentTurn).getCards());
+  }
+  if (restart) {
+    if (key == 'r') {
+      isStartScreen = true;
+      isLoadingScreen = false;
+      selection = false;
+      restart = false;
+      playerList = new ArrayList<Player>();
+      currentPokerHand = 0;
+      playerSelection = new ArrayList<Card>();
+      previousCards = new ArrayList<Card>();
+      placedCardText = "";
+      playerPass = 0;
+      countdown = 0;
+      musicOn = 1;
+      switchScreen = 0;
+    }
   }
 }
