@@ -8,7 +8,7 @@ static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false, isStartScreen = true, isLoadingScreen = false, restart = false;
 String placedCardText = "";
 static int playerPass = 0;
-SoundFile cardClicked, cardPlaced;
+SoundFile cardClicked, cardPlaced, playersSelected;
 PFont pixel, pixel2;
 
 void setupGame() {
@@ -151,22 +151,26 @@ boolean isGameOver() {
 
 void mouseClicked() {
   cardClicked = new SoundFile(this, "Sound/cardclicked.mp3");
+  playersSelected = new SoundFile(this, "Sound/playersSelected.mp3");
   if (isStartScreen) {
     if (mouseX > 100 && mouseX < 350 && mouseY > 500 && mouseY < 580) {
       numPlayers = 2;
       isStartScreen = false;
       isLoadingScreen = true;
       setupGame();
+      playersSelected.play();
     } else if (mouseX > 500 && mouseX < 750 && mouseY > 500 && mouseY < 580) {
       numPlayers = 3;
       isStartScreen = false;
       isLoadingScreen = true;
       setupGame();
+      playersSelected.play();
     } else if (mouseX > 900 && mouseX < 1150 && mouseY > 500 && mouseY < 580) {
       numPlayers = 4;
       isStartScreen = false;
       isLoadingScreen = true;
       setupGame();
+      playersSelected.play();
     }
   } else if (!isLoadingScreen) {
     ArrayList<Card> cards = playerList.get(currentTurn).getCards();
