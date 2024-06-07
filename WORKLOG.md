@@ -54,6 +54,14 @@ Created a Screens class to manage the different screens
 Created methods for a start screen and loading screen
 Updated methods to select # of players at start of game  
 
+### 6/4
+
+Created text for straight flush and royal flush cases  
+
+### 6/6
+
+Created a designated screen for the player win/game over and a way to restart the game.
+
 ## GROUP MEMBER 2
 
 ### 5/22
