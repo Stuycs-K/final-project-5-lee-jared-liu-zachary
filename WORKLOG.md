@@ -62,7 +62,11 @@ Created text for straight flush and royal flush cases
 
 Created a designated screen for the player win/game over and a way to restart the game.
 
-## GROUP MEMBER 2
+### 6/7
+
+Updating the UML Diagram and updating the prototype.
+
+## ZACHARY LIU
 
 ### 5/22
 
