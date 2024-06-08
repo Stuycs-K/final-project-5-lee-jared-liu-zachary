@@ -22,8 +22,4 @@ public class Player {
   ArrayList<Card> getCards() {
     return hand; 
   }
-  
-  ArrayList<Card> makeSelection() {
-    return new ArrayList<Card>();
-  }
 }

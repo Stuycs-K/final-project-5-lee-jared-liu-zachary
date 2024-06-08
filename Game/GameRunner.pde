@@ -2,7 +2,6 @@ import processing.sound.*;
 
 static int numPlayers, currentTurn, currentPokerHand = 0;
 static ArrayList<Player> playerList = new ArrayList<Player>();
-static ArrayList<Card> discardPile;
 static ArrayList<Card> playerSelection = new ArrayList<Card>();
 static ArrayList<Card> previousCards = new ArrayList<Card>();
 static boolean selection = false, isStartScreen = true, isLoadingScreen = false, restart = false;
@@ -177,7 +176,7 @@ void mouseClicked() {
     ArrayList<Card> cards = playerList.get(currentTurn).getCards();
     if (mouseY > 675 && mouseY < 780 && selection == false) {
       int i = (mouseX - (width/2) + (cards.size()/2*80))/80;
-      if (i < cards.size()) {
+      if (i > -1 && i < cards.size()) {
         Card toAdd = cards.get(i);
         if (!playerSelection.contains(toAdd) && playerSelection.size() < 5) {
           playerSelection.add(cards.get(i));
