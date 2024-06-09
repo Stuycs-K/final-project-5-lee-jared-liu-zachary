@@ -15,7 +15,13 @@ As for usage, we have keybinds for different aspects of the game.
 * Every player starts off with 13 cards, unsorted. Players press the **'s'** key to sort the cards in proper order.  
 * To pass, players press **'p'**.  
 * To change the color of the cards during the game, players can press **'1', '2', '3', '4', or '5'** for different coloring options.  
-* At the end, there will be a game over screen that tells the player the winner, and also gives the keybind, **'r'**, as an option to restart the game. 
+* At the end, there will be a game over screen that tells the player the winner, and also gives the keybind, **'r'**, as an option to restart the game.
+
+After running the game from processing the player will be presented with the player select screen. Simply click on one of the buttons to choose the number of players.  
+
+After choosing the number of players, the actual game with start. To select cards simply click on the cards you'd like to place down. Selected cards will show in a text box and rise slightly. To play a card(s) click anywhere inside the oval center. If card(s) selection is not valid, it will not place.  
+
+Continue playing until a player runs out of cards, in which case they win.
 
 ## Presentation
 https://drive.google.com/file/d/1Ki9YHZjsRXI-JluUDiY8fK6Dl_DN00Zn/view?usp=drive_link 
