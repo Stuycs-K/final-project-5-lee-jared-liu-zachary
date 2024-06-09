@@ -66,6 +66,10 @@ Created a designated screen for the player win/game over and a way to restart th
 
 Updating the UML Diagram and updating the prototype.
 
+### 6/8-9
+
+Finalizing UML Diagram, Video Presentation, README tweaks
+
 ## ZACHARY LIU
 
 ### 5/22
