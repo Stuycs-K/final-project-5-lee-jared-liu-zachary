@@ -12,10 +12,10 @@ We created a fully functional Chinese Poker multiplayer game (2-4 players). Chin
 ## Instructions
 To compile our project, you simply run the game from Processing. The only library you need to have is the Sound library as there is background music and various sounds for aspects of the game.
 As for usage, we have keybinds for different aspects of the game.  
-*Every player starts off with 13 cards, unsorted. Players press the **'s'** key to sort the cards in proper order.  
-*To pass, players press **'p'**.  
-*To change the color of the cards during the game, players can press **'1', '2', '3', '4', or '5'** for different coloring options.  
-*At the end, there will be a game over screen that tells the player the winner, and also gives the keybind, **'r'**, as an option to restart the game. 
+* Every player starts off with 13 cards, unsorted. Players press the **'s'** key to sort the cards in proper order.  
+* To pass, players press **'p'**.  
+* To change the color of the cards during the game, players can press **'1', '2', '3', '4', or '5'** for different coloring options.  
+* At the end, there will be a game over screen that tells the player the winner, and also gives the keybind, **'r'**, as an option to restart the game. 
 
 ## Presentation
 https://drive.google.com/file/d/1Ki9YHZjsRXI-JluUDiY8fK6Dl_DN00Zn/view?usp=drive_link 
